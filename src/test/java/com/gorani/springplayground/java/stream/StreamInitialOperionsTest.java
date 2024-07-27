@@ -14,9 +14,9 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-public class StreamFactoryTest {
+public class StreamInitialOperionsTest {
 
-    StreamFactory streamFactory = new StreamFactory();
+    StreamInitialOperions streamInitialOperions = new StreamInitialOperions();
 
     @Test
     @DisplayName("Test creating a stream from an array")
@@ -25,7 +25,7 @@ public class StreamFactoryTest {
         String[] array = {"a", "b", "c"};
 
         // when
-        List<String> result = streamFactory.streamFromArray(array).collect(Collectors.toList());
+        List<String> result = streamInitialOperions.streamFromArray(array).collect(Collectors.toList());
 
         // then
         assertEquals(List.of("a", "b", "c"), result, "Stream from array should match the expected values.");
@@ -38,7 +38,7 @@ public class StreamFactoryTest {
         List<String> list = List.of("a", "b", "c");
 
         // when
-        List<String> result = streamFactory.streamFromList(list).collect(Collectors.toList());
+        List<String> result = streamInitialOperions.streamFromList(list).collect(Collectors.toList());
 
         // then
         assertEquals(list, result, "Stream from list should match the expected values.");
@@ -53,7 +53,7 @@ public class StreamFactoryTest {
         String s3 = "c";
 
         // when
-        List<String> result = streamFactory.streamFromArgs(s1, s2, s3).collect(Collectors.toList());
+        List<String> result = streamInitialOperions.streamFromArgs(s1, s2, s3).collect(Collectors.toList());
 
         // then
         assertEquals(List.of(s1, s2, s3), result, "Stream from args should match the expected values.");
@@ -67,7 +67,7 @@ public class StreamFactoryTest {
         long limit = 5;
 
         // when
-        List<String> result = streamFactory.generateFixedValueStream(value, limit).collect(Collectors.toList());
+        List<String> result = streamInitialOperions.generateFixedValueStream(value, limit).collect(Collectors.toList());
 
         // then
         List<String> expected = Stream.generate(() -> value).limit(limit).collect(Collectors.toList());
@@ -82,7 +82,7 @@ public class StreamFactoryTest {
         int maxSize = 5;
 
         // when
-        List<Integer> result = streamFactory.generateStreamThatPlusNumsByTwo(seed, maxSize).collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.generateStreamThatPlusNumsByTwo(seed, maxSize).collect(Collectors.toList());
 
         // then
         List<Integer> expected = Stream.iterate(seed, n -> n + 2).limit(maxSize).collect(Collectors.toList());
@@ -97,7 +97,7 @@ public class StreamFactoryTest {
         int endExclusive = 10;
 
         // when
-        List<Integer> result = streamFactory.generateIntStream(startInclusive, endExclusive).boxed().collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.generateIntStream(startInclusive, endExclusive).boxed().collect(Collectors.toList());
 
         // then
         List<Integer> expected = IntStream.range(startInclusive, endExclusive).boxed().collect(Collectors.toList());
@@ -112,7 +112,7 @@ public class StreamFactoryTest {
         long endExclusive = 10;
 
         // when
-        List<Long> result = streamFactory.generateLongStream(startInclusive, endExclusive).boxed().collect(Collectors.toList());
+        List<Long> result = streamInitialOperions.generateLongStream(startInclusive, endExclusive).boxed().collect(Collectors.toList());
 
         // then
         List<Long> expected = LongStream.range(startInclusive, endExclusive).boxed().collect(Collectors.toList());
@@ -127,7 +127,7 @@ public class StreamFactoryTest {
         int endExclusive = 10;
 
         // when
-        List<Integer> result = streamFactory.generateBoxedIntStream(startInclusive, endExclusive).collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.generateBoxedIntStream(startInclusive, endExclusive).collect(Collectors.toList());
 
         // then
         List<Integer> expected = IntStream.range(startInclusive, endExclusive).boxed().collect(Collectors.toList());
@@ -142,7 +142,7 @@ public class StreamFactoryTest {
         long endExclusive = 10;
 
         // when
-        List<Long> result = streamFactory.generateBoxedLongStream(startInclusive, endExclusive).collect(Collectors.toList());
+        List<Long> result = streamInitialOperions.generateBoxedLongStream(startInclusive, endExclusive).collect(Collectors.toList());
 
         // then
         List<Long> expected = LongStream.range(startInclusive, endExclusive).boxed().collect(Collectors.toList());
@@ -156,7 +156,7 @@ public class StreamFactoryTest {
         String s = "abc";
 
         // when
-        List<Integer> result = streamFactory.generateCharStream(s).boxed().collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.generateCharStream(s).boxed().collect(Collectors.toList());
 
         // then
         List<Integer> expected = s.chars().boxed().collect(Collectors.toList());
@@ -170,7 +170,7 @@ public class StreamFactoryTest {
         String s = "a,b,c";
 
         // when
-        List<String> result = streamFactory.generateSplitStream(s).collect(Collectors.toList());
+        List<String> result = streamInitialOperions.generateSplitStream(s).collect(Collectors.toList());
 
         // then
         List<String> expected = List.of("a", "b", "c");
@@ -184,7 +184,7 @@ public class StreamFactoryTest {
         String s = "a b c";
 
         // when
-        List<String> result = streamFactory.generateRegexStream(s).collect(Collectors.toList());
+        List<String> result = streamInitialOperions.generateRegexStream(s).collect(Collectors.toList());
 
         // then
         List<String> expected = List.of("a", "b", "c");
@@ -198,7 +198,7 @@ public class StreamFactoryTest {
         List<Integer> list = List.of(1, 2, 3);
 
         // when
-        List<Integer> result = streamFactory.generateParallelStreamThatPlusNumsByTwo(list).collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.generateParallelStreamThatPlusNumsByTwo(list).collect(Collectors.toList());
 
         // then
         List<Integer> expected = list.stream().map(n -> n + 2).collect(Collectors.toList());
@@ -212,7 +212,7 @@ public class StreamFactoryTest {
         Integer[] array = {1, 2, 3};
 
         // when
-        List<Integer> result = streamFactory.generateParallelStreamThatPlusNumsByTwo(array).collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.generateParallelStreamThatPlusNumsByTwo(array).collect(Collectors.toList());
 
         // then
         List<Integer> expected = Arrays.stream(array).map(n -> n + 2).collect(Collectors.toList());
@@ -226,7 +226,7 @@ public class StreamFactoryTest {
         Stream<Integer> parallelStream = List.of(1, 2, 3).parallelStream();
 
         // when
-        Stream<Integer> result = streamFactory.transformToSequentialStream(parallelStream);
+        Stream<Integer> result = streamInitialOperions.transformToSequentialStream(parallelStream);
 
         // then
         assertFalse(result.isParallel(), "Transformed Stream should be sequential.");
@@ -240,8 +240,8 @@ public class StreamFactoryTest {
         Stream<Integer> sequentialStream = Stream.of(1, 2, 3);
 
         // when
-        boolean isParallel = streamFactory.isParallel(parallelStream);
-        boolean isSequential = streamFactory.isParallel(sequentialStream);
+        boolean isParallel = streamInitialOperions.isParallel(parallelStream);
+        boolean isSequential = streamInitialOperions.isParallel(sequentialStream);
 
         // then
         assertTrue(isParallel, "Stream should be parallel.");
@@ -256,7 +256,7 @@ public class StreamFactoryTest {
         Stream<Integer> stream2 = Stream.of(4, 5, 6);
 
         // when
-        List<Integer> result = streamFactory.concatStreams(stream1, stream2).collect(Collectors.toList());
+        List<Integer> result = streamInitialOperions.concatStreams(stream1, stream2).collect(Collectors.toList());
 
         // then
         List<Integer> expected = List.of(1, 2, 3, 4, 5, 6);
