@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-public class StreamFactory {
+public class StreamInitialOperions {
 
     // Method to demonstrate creating a stream from an array
     public Stream<String> streamFromArray(String[] array) {
