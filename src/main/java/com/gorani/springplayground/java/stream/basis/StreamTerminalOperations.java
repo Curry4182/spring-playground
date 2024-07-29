@@ -1,4 +1,4 @@
-package com.gorani.springplayground.java.stream;
+package com.gorani.springplayground.java.stream.basis;
 
 import com.gorani.springplayground.java.stream.enums.ProductType;
 import com.gorani.springplayground.java.stream.model.Product;

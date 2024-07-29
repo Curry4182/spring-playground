@@ -1,4 +1,4 @@
-package com.gorani.springplayground.java.stream;
+package com.gorani.springplayground.java.stream.basis;
 
 import org.springframework.stereotype.Component;
 

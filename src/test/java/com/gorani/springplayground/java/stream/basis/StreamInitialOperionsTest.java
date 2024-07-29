@@ -1,4 +1,4 @@
-package com.gorani.springplayground.java.stream;
+package com.gorani.springplayground.java.stream.basis;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
