@@ -1,11 +1,14 @@
 package com.gorani.springplayground.java.stream;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+@Component
 public class StreamInitialOperions {
 
     // Method to demonstrate creating a stream from an array
