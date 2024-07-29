@@ -1,4 +1,4 @@
-package com.gorani.springplayground.java.stream;
+package com.gorani.springplayground.java.stream.performance;
 
 import org.springframework.stereotype.Component;
 
