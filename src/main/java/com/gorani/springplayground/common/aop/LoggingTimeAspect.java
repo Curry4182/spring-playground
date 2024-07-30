@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingTimeAspect {
 
-    @Around("execution(* com.gorani.springplayground.java.stream.*.*(..))")
+    @Around("execution(* com.gorani.springplayground.java.stream.*.*.*(..))")
     public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.nanoTime();
 
